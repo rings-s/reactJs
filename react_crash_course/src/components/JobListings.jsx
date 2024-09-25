@@ -2,7 +2,12 @@ import jobs from "../jobs.json";
 import Joblisting from "./JobListing";
 const JobListings = () => {
 
+
+
+
     // console.log(jobs); as an array we loop through it and create a list using the map method
+
+  const recentJobs = jobs.slice(0, 3);
   return (
     <div>
          {/* Job browsing section */}
@@ -12,11 +17,10 @@ const JobListings = () => {
             Browse Jobs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Individual job listings */}
-            {jobs.map((job) => (
-              <Joblisting key={job.id} job={job} />
-            ))}
-            {/* Example of a job listing card */}
+              {/* Individual job listings */}
+              {recentJobs.map((job) => (
+                            <Joblisting key={job.id} job={job} />
+              ))}
            
           </div>
         </div>

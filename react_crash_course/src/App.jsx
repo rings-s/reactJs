@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import HomeCards from "./components/HomeCards";
 import Joblisting from "./components/JobListings";
 import Nav from "./components/Nav";
+import ViewAllJobs from "./components/ViewAllJobs";
 const App = () => {
   return (
     <div>
@@ -21,16 +22,13 @@ const App = () => {
 
       <Joblisting />
 
+      <ViewAllJobs  />
+
 
  
 
      
-      {/* Link to view all jobs */}
-      <section className="m-auto max-w-lg my-10 px-6">
-        <a href="jobs.html" className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700">
-          View All Jobs
-        </a>
-      </section>
+     
     </div>
   );
 }

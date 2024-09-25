@@ -1,6 +1,13 @@
-import jobs from "../jobs.json";
+import { useState } from "react"
+    const Joblisting = ({job}) => {
 
-const Joblisting = ({job}) => {
+    const [showFullDescription, setShowFullDescription] = useState(false);
+    let description = job.description;
+    if (!showFullDescription) {
+        description = description.substring(0, 90) + "...";
+
+    }
+
   return (
     <div>
             <div className="bg-white rounded-xl shadow-md relative">
@@ -12,7 +19,7 @@ const Joblisting = ({job}) => {
                             <h3 className="text-xl font-bold">{job.title}</h3>
                         </div>
                         <div className="mb-5">
-                            {job.description}
+                            {description}
                         </div>
                     <h3 className="text-indigo-500 mb-2">{job.salary} / Year</h3>
                     <div className="border border-gray-100 mb-5"></div>
