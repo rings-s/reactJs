@@ -7,12 +7,17 @@ import {
 import { HomePage } from './pages/HomePage';  // Verify the path is correct
 import MainLayout  from './layouts/MainLayout';
 import JobsPage from './pages/JobsPage';
+import NotFoundPage from './pages/NotFoundPage';
+
+
+
 // Create a router instance using createBrowserRouter and configure routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route index element={<HomePage />} /> 
       <Route path="/jobs" element={<JobsPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Route>
   )
 );
