@@ -4,7 +4,7 @@ import { useState } from "react"
     const [showFullDescription, setShowFullDescription] = useState(false);
     let description = job.description;
     if (!showFullDescription) {
-        description = description.substring(0, 90) + "...";
+        description = description.substring(0, 90) + "  ...";
 
     }
 
@@ -21,6 +21,7 @@ import { useState } from "react"
                         <div className="mb-5">
                             {description}
                         </div>
+                        <button className="text-indigo-500 hover:text-indigo-700 mb-5" onClick={() => setShowFullDescription(!showFullDescription)}>{showFullDescription ? "Less" : "More"}</button>
                     <h3 className="text-indigo-500 mb-2">{job.salary} / Year</h3>
                     <div className="border border-gray-100 mb-5"></div>
                     <div className="flex flex-col lg:flex-row justify-between mb-4">
