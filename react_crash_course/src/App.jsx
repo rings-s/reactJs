@@ -1,35 +1,31 @@
-// Main App component that renders the entire page
-import Hero from "./components/Hero";
-import HomeCards from "./components/HomeCards";
-import Joblisting from "./components/JobListings";
-import Nav from "./components/Nav";
-import ViewAllJobs from "./components/ViewAllJobs";
+import { 
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider, 
+} from 'react-router-dom';
+import { HomePage } from './pages/HomePage';  // Verify the path is correct
+import MainLayout  from './layouts/MainLayout';
+import JobsPage from './pages/JobsPage';
+// Create a router instance using createBrowserRouter and configure routes
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<HomePage />} /> 
+      <Route path="/jobs" element={<JobsPage />} />
+    </Route>
+  )
+);
+// Define the App component
 const App = () => {
   return (
-    <div>
-    
-      <Nav />
+    <>
 
+      {/* Render the MainLayout component */}
+      {/* RouterProvider component provided by React Router to enable routing */}
 
-
-      <Hero 
-        title='Become a React Dev' 
-        subtitle='Find the React job that fits your skills and needs'
-      />
-
-
-      <HomeCards />
-
-      <Joblisting />
-
-      <ViewAllJobs  />
-
-
- 
-
-     
-     
-    </div>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
