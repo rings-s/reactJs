@@ -31,7 +31,7 @@ import { Link } from "react-router-dom";
                         <FaMapMarker className="inline mb-1 text-lg mr-1" />
                         {job.location}
                         </div>
-                        <Link to={`/job/${job.id}`} className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm">
+                        <Link to={`/jobs/${job.id}`} className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm">
                         Read More
                         </Link>
                     </div>
