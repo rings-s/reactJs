@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Joblisting from "./JobListing";
 
+import Spinner from "./Spinner";
+
 const JobListings = ({ isHome = false }) => {
   // console.log(jobs); as an array we loop through it and create a list using the map method
   const [jobs, setJobs] = useState([]);
@@ -36,15 +38,16 @@ const JobListings = ({ isHome = false }) => {
           <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
             {isHome ? "Recent Jobs" : "All Jobs"}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               
-              {loading ? (<h2>Loading...</h2>) : (
-                <>
+              {loading ? (<
+                Spinner  loading={loading}/>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {jobs.map((job) => (
                     <Joblisting key={job.id} job={job} />
                   ))}
                 
-                </>
+                </div>
                 
               )}
 
@@ -53,7 +56,6 @@ const JobListings = ({ isHome = false }) => {
 
           
            
-          </div>
         </div>
       </section>
 
