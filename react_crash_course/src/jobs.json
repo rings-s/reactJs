@@ -83,6 +83,20 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "987a",
+      "title": "Test Job",
+      "type": "Remote",
+      "location": "khartoum",
+      "description": "Test Job Description",
+      "salary": "$60K - 70K",
+      "company": {
+        "name": "kicks",
+        "description": "Kiks Description",
+        "contactEmail": "email@yahoo.com",
+        "contactPhone": "555-555-555"
+      }
     }
   ]
 }

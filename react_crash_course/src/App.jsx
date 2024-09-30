@@ -16,8 +16,15 @@ import AddJobPage from './pages/AddJobPage';
 
 // Define the App component
 const App = () => {
-  const addJob = (newJob) => {
-    console.log(newJob);
+  const addJob = async (newJob) => {
+    const res = fetch('/api/jobs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newJob),
+    });
+    return;
   }
   
   // Create a router instance using createBrowserRouter and configure routes
@@ -32,7 +39,7 @@ const App = () => {
       </Route>
     )
   );
-  
+
   return (
     <>
 
