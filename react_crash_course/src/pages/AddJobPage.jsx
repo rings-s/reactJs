@@ -1,7 +1,10 @@
 import { useState } from "react";
-const AddJobPage = () => {
+import { useNavigate } from "react-router-dom";
+const AddJobPage = ({ AddJobSubmit }) => {
 
-    // State variables
+
+  // Initialize state for each input field in the form with default values
+
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Full-Time");
   const [location, setLocation] = useState("");
@@ -12,8 +15,13 @@ const AddJobPage = () => {
   const [contactEmail, setContactEmail] = useState("");
   const [contactPhone, setContactPhone] = useState("");
 
+  const navigate = useNavigate();
+
+    // Function to handle form submission
+
   const SubmitForm = (e) => {
-    e.preventDefault();
+    e.preventDefault();// Prevent default form submission behavior
+    // Compile job data into a structured object
     const newJob = {
         title,
         type,
@@ -28,8 +36,17 @@ const AddJobPage = () => {
         }
     };
 
-    console.log(newJob);
+    // console.log(newJob);
+    // once we submit it we wanna to redirect to jobs page
+    AddJobSubmit(newJob);
+
+    return navigate("/jobs");
+
+    // goto main page and set the prop
   };
+
+
+    
 
 
   return (

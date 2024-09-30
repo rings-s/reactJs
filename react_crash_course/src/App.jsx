@@ -12,20 +12,27 @@ import JobPage from './pages/JobPage';
 import AddJobPage from './pages/AddJobPage';
 
 
-// Create a router instance using createBrowserRouter and configure routes
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<MainLayout />}>
-      <Route index element={<HomePage />} /> 
-      <Route path="/jobs" element={<JobsPage />} />
-      <Route path="/add-job" element={<AddJobPage />} />
-      <Route path="/jobs/:id" element={<JobPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Route>
-  )
-);
+
+
 // Define the App component
 const App = () => {
+  const addJob = (newJob) => {
+    console.log(newJob);
+  }
+  
+  // Create a router instance using createBrowserRouter and configure routes
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} /> 
+        <Route path="/jobs" element={<JobsPage />} />
+        <Route path="/add-job" element={<AddJobPage AddJobSubmit={addJob} />} />
+        <Route path="/jobs/:id" element={<JobPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    )
+  );
+  
   return (
     <>
 
