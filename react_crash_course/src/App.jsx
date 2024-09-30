@@ -16,6 +16,8 @@ import AddJobPage from './pages/AddJobPage';
 
 // Define the App component
 const App = () => {
+
+  // add new job function
   const addJob = async (newJob) => {
     const res = fetch('/api/jobs', {
       method: 'POST',
@@ -26,6 +28,16 @@ const App = () => {
     });
     return;
   }
+
+  // Delete Job
+  const deleteJob = async (id) => {
+    // console.log('delete', id);
+    const res = fetch(`/api/jobs/${id}`, {
+      method: 'DELETE',
+      
+     });
+    return;
+  };
   
   // Create a router instance using createBrowserRouter and configure routes
   const router = createBrowserRouter(
@@ -34,7 +46,9 @@ const App = () => {
         <Route index element={<HomePage />} /> 
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/add-job" element={<AddJobPage AddJobSubmit={addJob} />} />
-        <Route path="/jobs/:id" element={<JobPage />} />
+        {/* <Route path="/jobs/:id" element={<JobPage />} /> */}
+        <Route path="/jobs/:id" element={<JobPage deleteJob={deleteJob} />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
