@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const AddJobPage = ({ AddJobSubmit }) => {
 
 
@@ -39,6 +41,8 @@ const AddJobPage = ({ AddJobSubmit }) => {
     // console.log(newJob);
     // once we submit it we wanna to redirect to jobs page
     AddJobSubmit(newJob);
+
+    toast.success("Job added successfully");
 
     return navigate("/jobs");
 
